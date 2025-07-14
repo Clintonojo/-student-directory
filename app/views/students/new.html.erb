@@ -1,0 +1,9 @@
+<% content_for :title, "New Student" %>
+
+<div class="card p-4 shadow-sm">
+  <h2 class="mb-4"> Add a New Student</h2>
+
+  <%= render "form", student: @student %>
+
+  <%= link_to "← Back to Students", students_path, class: "btn btn-outline-light mt-3" %>
+</div>
