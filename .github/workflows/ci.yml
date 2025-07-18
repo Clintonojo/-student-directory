@@ -11,11 +11,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    services:
-      db:
-        image: sqlite
-        # SQLite does not run as a service, but we keep this for future DBs
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
