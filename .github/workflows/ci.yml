@@ -27,6 +27,9 @@ jobs:
       - name: Install dependencies
         run: bundle install --jobs 4 --retry 3
 
+      - name: Ensure bin/rails is executable
+        run: chmod +x bin/rails
+
       - name: Generate test database config
         run: |
           cat > config/database.yml <<-YAML
@@ -38,14 +41,12 @@ jobs:
           YAML
 
       - name: Prepare database
-        run: |
-          bin/rails db:drop db:create db:schema:load RAILS_ENV=test
+        run: bin/rails db:drop db:create db:schema:load RAILS_ENV=test
 
       - name: Run RSpec tests
         env:
           RAILS_ENV: test
-        run: |
-          bundle exec rspec
+        run: bundle exec rspec
 
       - name: Print coverage if present
         if: always()
