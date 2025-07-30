@@ -33,7 +33,7 @@ RSpec.describe "Students", type: :request do
   describe "GET /students" do
     it "returns a list of students" do
       # Create a test student so we have something to see
-      Student = Student.create!(
+      student = Student.create!(
         name: "Index Test",
         email: "index@example.com",
         phone: "0891111111",
