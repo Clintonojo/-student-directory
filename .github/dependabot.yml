@@ -1,12 +1,27 @@
 version: 2
+
 updates:
-- package-ecosystem: bundler
-  directory: "/"
-  schedule:
-    interval: daily
-  open-pull-requests-limit: 10
-- package-ecosystem: github-actions
-  directory: "/"
-  schedule:
-    interval: daily
-  open-pull-requests-limit: 10
+  - package-ecosystem: bundler
+    directory: "/"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    groups:
+      all-deps:
+        patterns:
+          - "*"
+    ignore:
+      - dependency-name: importmap-rails
+        versions: ["2.2.0"]
+      - dependency-name: sqlite3
+        versions: ["2.7.3"]
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    groups:
+      actions:
+        patterns:
+          - "*"
