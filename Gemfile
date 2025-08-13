@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.2.1", ">= 7.2.1.1"
+gem "rails", "~> 8.0.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 # Use the Puma web server [https://github.com/puma/puma]
@@ -71,5 +71,5 @@ gem "rails-ujs"
 gem "ransack", "~> 4.0"  # Search functionality
 
 group :production do
-  gem "pg", "~> 1.4"
+  gem "pg", "~> 1.6"
 end
